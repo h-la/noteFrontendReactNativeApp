@@ -2,8 +2,9 @@ import React from 'react';
 import Constants from 'expo-constants';
 import { Text, StyleSheet, View } from 'react-native';
 
-//components
+import AppBarTop from './appBarTop/AppBarTop'
 import NoteList from './notes/NoteList';
+import AppBarBottom from './BottomNavigationBar/BottomNavigationBar'
 
 const styles = StyleSheet.create({
   container: {
@@ -16,8 +17,9 @@ const styles = StyleSheet.create({
 const Main = () => {
   return (
     <View style={styles.container}>
-      <Text>Note application</Text>
+      <AppBarTop />
       <NoteList />
+      <AppBarBottom />
     </View>
   );
 };
