@@ -16,11 +16,12 @@ const styles = StyleSheet.create({
 
 const Main = () => {
   return (
-    <View style={styles.container}>
-      <AppBarTop />
-      <NoteList />
-      <AppBarBottom />
-    </View>
+      <View style={styles.container}>
+        
+        <AppBarTop />
+        <NoteList />
+        <AppBarBottom />
+      </View>
   );
 };
 

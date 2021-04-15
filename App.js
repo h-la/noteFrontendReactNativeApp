@@ -14,13 +14,11 @@ const App = () => {
   console.log(Constants.manifest.extra.env);
 
   return (
-    <Text>
       <NativeRouter>
         <ApolloProvider client={apolloClient}>
-          <Main />;
+          <Main />
       </ApolloProvider>
       </NativeRouter>
-    </Text>
   )
 };
 
