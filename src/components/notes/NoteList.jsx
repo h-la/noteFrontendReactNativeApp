@@ -1,9 +1,10 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import useNotes from '../../hooks/useNotes';
 import NoteItem from './NoteItem'
 
 import View from '../View'
+import Text from '../Text'
 
 const ItemSeparator = () => <View style='separator' />;
 
@@ -20,14 +21,14 @@ const NoteList = () => {
 
   return (
     <View style='container'>
-      <FlatList
-        keyExtractor={(item) => item.id}
-        data={notes.data.allNotes.map(p => p)}
-        ItemSeparatorComponent={ItemSeparator}
-        renderItem={({ item }) => (
-          <NoteItem item={item} />
-        )}
-      />
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={notes.data.allNotes.map(p => p)}
+          ItemSeparatorComponent={ItemSeparator}
+          renderItem={({ item }) => (
+            <NoteItem item={item} />
+          )}
+        />
     </View>
   );
 };
