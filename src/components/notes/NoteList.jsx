@@ -5,7 +5,7 @@ import NoteItem from './NoteItem'
 
 import View from '../View'
 
-const ItemSeparator = () => <View height='separator' />;
+const ItemSeparator = () => <View style='separator' />;
 
 const NoteList = () => {
   const notes = useNotes()

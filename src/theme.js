@@ -1,9 +1,11 @@
 const theme = {
     colors: {
-      textPrimary: '#24292e', 
+      textPrimary: '#24292e', //black
       textSecondary: '#586069',
-      textTheme: '#ffffff',
-      primaryTheme: '#a60808',
+      textTheme: '#ffffff', // white '#ffffff'
+      primaryTheme: '#a60808', // red '#a60808'
+      backgroundColor: '#ffffff', // white //grey '#e1e4e8'
+      borderColor: '#a60808', // red // black #24292e // red '#a60808'
     },
     fontSizes: {
       body: 14,

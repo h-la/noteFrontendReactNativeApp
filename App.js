@@ -6,8 +6,6 @@ import Constants from 'expo-constants';
 import Main from './src/components/Main';
 import createApolloClient from './src/utils/apolloClient';
 
-import { Text } from 'react-native';
-
 const apolloClient = createApolloClient();
 
 const App = () => {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity, Pressable, Alert } from 'react-native';
+import { Pressable, Alert } from 'react-native';
+import View from '../View'
 import Text from '../Text'
 
 const NoteItem = props => {
@@ -9,7 +10,7 @@ const NoteItem = props => {
 
     return (
         <Pressable onPress={() => toSingleRepositoryView(props.item.id)}>
-            <View>
+            <View style='subContainer'>
                 <Text fontWeight="bold" fontSize="subheading">{props.item.title}</Text>
                 <Text color="textSecondary">{props.item.text}</Text>
                 <Text color="textSecondary">{props.item.url}</Text>
