@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-native';
 import AppBarTop from './appBarTop/AppBarTop'
 import SignIn from './signIn/SignIn'
 import NoteList from './notes/NoteList';
+import SingleNote from './notes/SingleNote';
 import AppBarBottom from './BottomNavigationBar/BottomNavigationBar'
 
 import View from './View'
@@ -16,10 +17,13 @@ const Main = () => {
         <Route path="/notelist" exact>
           <NoteList />
         </Route>
+        <Route path="/notelist/:id" exact>
+          <SingleNote />
+        </Route>
         <Route path="/signin" exact>
           <SignIn />
         </Route>
-        <Redirect to="/signin" exact/>
+        <Redirect to="/signin" exact />
       </Switch>
       <AppBarBottom />
     </View>

@@ -1,11 +1,14 @@
 import React from 'react';
-import { Pressable, Alert } from 'react-native';
+import { Pressable } from 'react-native';
+import { useHistory } from 'react-router-native';
 import View from '../View'
 import Text from '../Text'
 
 const NoteItem = props => {
+    const history = useHistory();
+
     const toSingleRepositoryView = (id) => {
-      Alert.alert(`you pressed the text ${id}`)
+        history.push(`notelist/${id}`);
     };
 
     return (

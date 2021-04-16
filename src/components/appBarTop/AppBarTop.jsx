@@ -11,7 +11,7 @@ const AppBarTop = () => {
                 <Text>LogOut</Text>
             </Link>            
             <Text fontWeight="bold" fontSize="subheading" color="theme">NOTES</Text>     
-                <Text>Search</Text>
+            <Text>Add</Text>
         </View>
     )
 };
