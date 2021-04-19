@@ -14,9 +14,11 @@ const NoteItem = props => {
     return (
         <Pressable onPress={() => toSingleRepositoryView(props.item.id)}>
             <View style='subContainer'>
-                <Text fontWeight="bold" fontSize="subheading">{props.item.title}</Text>
-                <Text color="textSecondary">{props.item.text}</Text>
-                <Text color="textSecondary">{props.item.url}</Text>
+                <View style='centralizeContainer'>
+                    <Text fontWeight="bold" fontSize="subheading">{props.item.title}</Text>
+                    <Text color="textSecondary">{props.item.text}</Text>
+                    <Text color="textSecondary">{props.item.url}</Text>
+                </View>
             </View>
         </Pressable>
     );

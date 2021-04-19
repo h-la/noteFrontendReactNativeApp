@@ -8,11 +8,10 @@ const AppBarBottom = () => {
         <View style='bottomNavigationBar'>
             <Link to='/notelist'>
                 <Text color="theme">Notes</Text>
-            </Link>
-               
+            </Link>               
             <Text color="theme">Videos</Text>
             <Text color="theme">Books</Text>
-            <Text color="theme">Podcast</Text>
+            <Text color="theme">Podcasts</Text>
         </View>
     )
 };

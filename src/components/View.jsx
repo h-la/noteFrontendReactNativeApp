@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         paddingRight: 5,      
         flexDirection: 'row',
         backgroundColor: 'transparent',
-        //   justifyContent: 'center',
-        //alignItems: 'center',
+    //    justifyContent: 'center',
+    //    alignItems: 'center',
     },
     subContainer: {
         flexGrow: 1,
@@ -39,18 +39,18 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.textTheme,
         borderWidth: 2,
     },
-    /*
-    subSubContainer: {
-        flexDirection: 'row',
-        backgroundColor: 'white',
-    },
-    subSubSubContainer: {
+    buttonContainer: {
         flexGrow: 1,
         flexShrink: 1,
-        paddingLeft: 15,
+        flexDirection: 'row',
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },    
+    centralizeContainer: {
+        justifyContent: 'center',
         alignItems: 'center',
     },
-    */
     bottomNavigationBar: {
         paddingBottom: Constants.statusBarHeight,
         position: 'absolute',
@@ -76,6 +76,8 @@ const View = ({ height, style, ...props }) => {
         style === 'mainContainer' && styles.mainContainer,
         style === 'container' && styles.container,
         style === 'subContainer' && styles.subContainer,
+        style === 'buttonContainer' && styles.buttonContainer,
+        style === 'centralizeContainer' && styles.centralizeContainer,
         style === 'bottomNavigationBar' && styles.bottomNavigationBar,
         style === 'separator' && styles.separator,
     ];

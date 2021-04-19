@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import useNotes from '../../hooks/useNotes';
+import useNotes from '../../hooks/notes/useNotes';
 import NoteItem from './NoteItem'
 
 import View from '../View'
