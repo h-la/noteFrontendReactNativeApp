@@ -10,7 +10,7 @@ const initialValues = {
     title: '',
     text: '',
     url: '',
-    review: '',
+    important: '',
 };
 
 const validationSchema = yup.object().shape({
@@ -21,7 +21,7 @@ const validationSchema = yup.object().shape({
     url: yup
         .string(),
     important: yup
-        .boolean(),
+        .bool(),
 });
 
 const CreateNote = () => {

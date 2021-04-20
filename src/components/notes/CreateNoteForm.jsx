@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, KeyboardAvoidingView, TextInput } from 'react-native';
+import { StyleSheet, View, ScrollView, KeyboardAvoidingView, TextInput, Select } from 'react-native';
+import { RadioButton } from 'react-native-paper';
 import FormikTextInput from '../FormikTextInput';
+
+import { useField } from 'formik';
 
 import Button from '../Button';
 //import View from '../View'
@@ -34,6 +37,30 @@ const styles = StyleSheet.create({
 });
 
 const CreateNoteForm = ({ onSubmit }) => {
+
+    const [booleanValue, setBooleanValue] = React.useState('false');
+
+    //this is only for 'important' TextInput because it is connected with RadioButton
+    const [field, meta, helpers] = useField('important');
+    /*
+     <View style={styles.circle}>
+                        <FormikTextInput name='important' value={value}  />
+                    </View>
+                    <View style={styles.padding} />
+                    
+                  
+                        <View style={styles.circle}>
+                        <TextInput  defaultValue='false' onChangeText={value => helpers.setValue(value)}
+                            onBlur={() => helpers.setTouched(true)}
+                        />
+                    </View>
+                    */
+    const setRadioValue = (value) => {
+        helpers.setValue(value)
+        setBooleanValue(value)
+       // value => setValue(value)
+    }
+
     return (
         <View style={styles.container}>
             <KeyboardAvoidingView
@@ -62,11 +89,14 @@ const CreateNoteForm = ({ onSubmit }) => {
                     </View>
                     <View style={styles.padding} />
 
-                    <Text fontSize="subheading">Important</Text>
-                    <View style={styles.circle}>
-                        <FormikTextInput name='important' placeholder='' />
-                    </View>
-                    <View style={styles.padding} />
+
+                
+
+                    <RadioButton.Group value={booleanValue} onValueChange={value => setRadioValue(value)} >
+                        <RadioButton.Item label="Not important" value="false" />
+                        <RadioButton.Item label="Important" value="true" />
+                    </RadioButton.Group>
+
 
                     <View style={styles.padding} />
 
