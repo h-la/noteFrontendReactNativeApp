@@ -5,6 +5,7 @@ import AppBarTop from './appBarTop/AppBarTop'
 import SignIn from './signIn/SignIn'
 import NoteList from './notes/NoteList';
 import SingleNote from './notes/SingleNote';
+import CreateNote from './notes/CreateNote'
 import AppBarBottom from './BottomNavigationBar/BottomNavigationBar'
 
 import View from './View'
@@ -19,6 +20,9 @@ const Main = () => {
         </Route>
         <Route path="/notelist/:id" exact>
           <SingleNote />
+        </Route>
+        <Route path="/createnote" exact>
+          <CreateNote />
         </Route>
         <Route path="/signin" exact>
           <SignIn />

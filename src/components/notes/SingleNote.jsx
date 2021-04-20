@@ -24,7 +24,7 @@ const SingleNote = () => {
         return <Text>error</Text>
     }
 
-    const handleDeleteNote = async (props) => {
+    const handleDeleteNote = async () => {
         console.log({ id })
         await deleteNote({ id })
         history.push('/notelist');
@@ -40,13 +40,11 @@ const SingleNote = () => {
                         <Text color="textSecondary">{note.data.findNote.text}</Text>
                         <Text color="textSecondary">{note.data.findNote.url}</Text>
                     </View>
-
                 </View>
-
             </View>
             <View style='buttonContainer'>
-                <Button onPress={handleDeleteNote} style='text' title='update' />
                 <Button onPress={handleDeleteNote} style='text' title='delete' />
+                <Button onPress={handleDeleteNote} style='text' title='update' />
             </View>
         </View>
     )
