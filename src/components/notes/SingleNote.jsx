@@ -1,5 +1,4 @@
 import React from 'react';
-import { Pressable } from 'react-native';
 import { useParams } from 'react-router-native';
 import { useHistory } from 'react-router-native';
 
@@ -25,10 +24,14 @@ const SingleNote = () => {
     }
 
     const handleDeleteNote = async () => {
-        console.log({ id })
+    //    console.log({ id })
         await deleteNote({ id })
         history.push('/notelist');
         //props.refetch();
+    };
+
+    const toUpdateView = () => {
+        history.push(`/notelist/updatenote/${id}`);
     };
 
     return (
@@ -44,7 +47,7 @@ const SingleNote = () => {
             </View>
             <View style='buttonContainer'>
                 <Button onPress={handleDeleteNote} style='text' title='delete' />
-                <Button onPress={handleDeleteNote} style='text' title='update' />
+                <Button onPress={toUpdateView} style='text' title='update' />
             </View>
         </View>
     )

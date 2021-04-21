@@ -5,7 +5,7 @@ const theme = {
       textTheme: '#ffffff', // white '#ffffff'
       primaryTheme: '#a60808', // red '#a60808'
       backgroundColor: '#ffffff', // white //grey '#e1e4e8'
-      borderColor: '#a60808', // red // black #24292e // red '#a60808'
+    //  borderColor: '#a60808', // red // black #24292e // red '#a60808'
     },
     fontSizes: {
       body: 14,

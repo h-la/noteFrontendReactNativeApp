@@ -1,16 +1,13 @@
 import React from 'react';
+import { useParams } from 'react-router-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import useCreateNote from '../../hooks/notes/useCreateNote';
 import { useHistory } from 'react-router-native';
-import CreateNoteForm from './CreateNoteForm'
+import UpdateNoteForm from './UpdateNoteForm'
 
-const initialValues = {
-    title: '',
-    text: '',
-    url: '',
-    important: '',
-};
+import useSingleNote from '../../hooks/notes/useSingleNote';
+import Text from '../Text'
 
 const validationSchema = yup.object().shape({
     title: yup
@@ -23,9 +20,27 @@ const validationSchema = yup.object().shape({
         .bool(),
 });
 
-const CreateNote = () => {
+const UpdateNote = () => {
+    const { id } = useParams();
+    const note = useSingleNote({ noteToSearch: id });
+
     const [createNote] = useCreateNote();
     const history = useHistory();
+
+    if (note.loading) {
+        return <Text>loading...</Text>
+    }
+
+    if (note.error) {
+        return <Text>error</Text>
+    }
+
+    const initialValues = {
+        title: note.data.findNote.title,
+        text: note.data.findNote.text,
+        url: note.data.findNote.url,
+        important: String(note.data.findNote.important),
+    };
 
     const onSubmit = async (values) => {
         const title = values.title;
@@ -51,9 +66,9 @@ const CreateNote = () => {
 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-            {({ handleSubmit }) => <CreateNoteForm onSubmit={handleSubmit} />}
+            {({ handleSubmit }) => <UpdateNoteForm onSubmit={handleSubmit} />}
         </Formik>
     );
 };
 
-export default CreateNote;
+export default UpdateNote;

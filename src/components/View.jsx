@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         //    paddingLeft: 15,
         padding: 15,
         borderRadius: 15,
-        borderColor: theme.colors.borderColor,
+        borderColor: theme.colors.primaryTheme,
         backgroundColor: theme.colors.textTheme,
         borderWidth: 2,
     },
@@ -50,6 +50,22 @@ const styles = StyleSheet.create({
     centralizeContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    formContainer: {
+        padding: 15,
+        flexGrow: 1,
+        flexShrink: 1,
+        backgroundColor: 'white',
+    },
+    formCircle: {
+        borderWidth: 1,
+        borderRadius: 5,
+        padding: 10,
+    //    borderColor: theme.colors.primaryTheme,
+    },
+    formPadding: {
+        paddingBottom: 20,
     },
     bottomNavigationBar: {
         paddingBottom: Constants.statusBarHeight,
@@ -78,6 +94,9 @@ const View = ({ height, style, ...props }) => {
         style === 'subContainer' && styles.subContainer,
         style === 'buttonContainer' && styles.buttonContainer,
         style === 'centralizeContainer' && styles.centralizeContainer,
+        style === 'formContainer' && styles.formContainer,
+        style === 'formCircle' && styles.formCircle,
+        style === 'formPadding' && styles.formPadding,
         style === 'bottomNavigationBar' && styles.bottomNavigationBar,
         style === 'separator' && styles.separator,
     ];

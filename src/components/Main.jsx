@@ -6,6 +6,7 @@ import SignIn from './signIn/SignIn'
 import NoteList from './notes/NoteList';
 import SingleNote from './notes/SingleNote';
 import CreateNote from './notes/CreateNote'
+import UpdateNote from './notes/UpdateNote'
 import AppBarBottom from './BottomNavigationBar/BottomNavigationBar'
 
 import View from './View'
@@ -20,6 +21,9 @@ const Main = () => {
         </Route>
         <Route path="/notelist/:id" exact>
           <SingleNote />
+        </Route>
+        <Route path="/notelist/updatenote/:id" exact>
+          <UpdateNote />
         </Route>
         <Route path="/createnote" exact>
           <CreateNote />

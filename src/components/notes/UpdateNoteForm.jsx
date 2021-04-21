@@ -3,6 +3,8 @@ import { StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import FormikTextInput from '../FormikTextInput';
 import { useField } from 'formik';
+import { useParams } from 'react-router-native';
+import { useHistory } from 'react-router-native';
 
 import Button from '../Button';
 import View from '../View'
@@ -16,15 +18,21 @@ const styles = StyleSheet.create({
     },
 });
 
-const CreateNoteForm = ({ onSubmit }) => {
-    const [booleanValue, setBooleanValue] = React.useState('false');
+const UpdateNoteForm = ({ onSubmit }) => {
     //this is only for 'important' TextInput because it is connected with RadioButton
+    const { id } = useParams();
     const [field, meta, helpers] = useField('important');
+    const [booleanValue, setBooleanValue] = React.useState(field.value);
+    const history = useHistory();
 
     const setRadioValue = (value) => {
         helpers.setValue(value)
         setBooleanValue(value)
     }
+
+    const toSingleNoteView = () => {
+        history.push(`/notelist/${id}`);
+    };
 
     return (
         <View style='formContainer'>
@@ -55,7 +63,10 @@ const CreateNoteForm = ({ onSubmit }) => {
                         <RadioButton.Item label="Important" value="true" />
                     </RadioButton.Group>
                     <View style='formPadding' />
-                    <Button onPress={onSubmit} style='text' title='Make a Note' />
+                    <View style='buttonContainer'>
+                        <Button onPress={toSingleNoteView} style='text' title='Back' />
+                        <Button onPress={onSubmit} style='text' title='Save' />
+                    </View>
                     <View style='formPadding' />
                 </ScrollView>
             </KeyboardAvoidingView>
@@ -63,4 +74,4 @@ const CreateNoteForm = ({ onSubmit }) => {
     );
 };
 
-export default CreateNoteForm;
+export default UpdateNoteForm;
