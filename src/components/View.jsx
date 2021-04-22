@@ -51,12 +51,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
     formContainer: {
         padding: 15,
         flexGrow: 1,
         flexShrink: 1,
-        backgroundColor: 'white',
+        backgroundColor: theme.colors.textTheme,
+    },
+    signInformContainer: {
+        padding: 35,
+        paddingTop: 145,
+        flexGrow: 1,
+        flexShrink: 1,
+        backgroundColor: theme.colors.textTheme,
     },
     formCircle: {
         borderWidth: 1,
@@ -95,6 +101,7 @@ const View = ({ height, style, ...props }) => {
         style === 'buttonContainer' && styles.buttonContainer,
         style === 'centralizeContainer' && styles.centralizeContainer,
         style === 'formContainer' && styles.formContainer,
+        style === 'signInformContainer' && styles.signInformContainer,
         style === 'formCircle' && styles.formCircle,
         style === 'formPadding' && styles.formPadding,
         style === 'bottomNavigationBar' && styles.bottomNavigationBar,

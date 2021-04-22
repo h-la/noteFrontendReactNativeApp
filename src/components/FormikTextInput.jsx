@@ -18,6 +18,8 @@ const FormikTextInput = ({ name, ...props }) => {
   // Check if the field is touched and the error message is present
   const showError = meta.touched && meta.error;
 
+  // {showError && <Text style={styles.errorText}></Text>}
+
   return (
     <>
       <TextInput
@@ -27,8 +29,7 @@ const FormikTextInput = ({ name, ...props }) => {
         error={showError}
         multiline={true}
         {...props}
-      />
-      {showError && <Text style={styles.errorText}></Text>}
+      />   
     </>
   );
 };
