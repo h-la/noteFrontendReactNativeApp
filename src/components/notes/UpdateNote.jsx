@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import useCreateNote from '../../hooks/notes/useCreateNote';
 import { useHistory } from 'react-router-native';
 import UpdateNoteForm from './UpdateNoteForm'
 
 import useSingleNote from '../../hooks/notes/useSingleNote';
+import useUpdateNote from '../../hooks/notes/useUpdateNote';
 import Text from '../Text'
 
 const validationSchema = yup.object().shape({
@@ -24,7 +24,7 @@ const UpdateNote = () => {
     const { id } = useParams();
     const note = useSingleNote({ noteToSearch: id });
 
-    const [createNote] = useCreateNote();
+    const [updateNote] = useUpdateNote();
     const history = useHistory();
 
     if (note.loading) {
@@ -55,10 +55,10 @@ const UpdateNote = () => {
             important = false
         }
 
-        console.log(`title: ${title}, text: ${text}, url: ${url}, important: ${important}`);
+        console.log(`id: ${id}, title: ${title}, text: ${text}, url: ${url}, important: ${important}`);
         try {
-            await createNote({ title, text, url, important });
-            history.push('/notelist');
+            await updateNote({ id, title, text, url, important });
+            history.push(`/notelist/${id}`)
         } catch (e) {
             console.log(e);
         }
