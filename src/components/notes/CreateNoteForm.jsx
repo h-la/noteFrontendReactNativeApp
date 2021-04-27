@@ -1,4 +1,5 @@
-import React from 'react';
+//import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import FormikTextInput from '../FormikTextInput';
@@ -25,14 +26,14 @@ const CreateNoteForm = ({ onSubmit }) => {
         helpers.setValue(value)
         setBooleanValue(value)
     }
-
+    
     return (
         <View style='formContainer'>
             <KeyboardAvoidingView
                 style={styles.keyboardAvoiding} behavior="padding"
                 enabled keyboardVerticalOffset={50}
             >
-                <ScrollView>
+                <ScrollView keyboardShouldPersistTaps={'handled'}>
                     <Text fontSize="subheading">Title</Text>
                     <View style='formCircle'>
                         <FormikTextInput name="title" placeholder="" />
@@ -50,7 +51,7 @@ const CreateNoteForm = ({ onSubmit }) => {
                         <FormikTextInput name='url' placeholder='' />
                     </View>
                     <View style='formPadding' />
-                    <RadioButton.Group value={booleanValue} onValueChange={value => setRadioValue(value)} >
+                    <RadioButton.Group value={booleanValue} onValueChange={value => setRadioValue(value)}>
                         <RadioButton.Item label="Not important" value="false" />
                         <RadioButton.Item label="Important" value="true" />
                     </RadioButton.Group>
