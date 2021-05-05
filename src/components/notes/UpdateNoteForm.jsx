@@ -40,7 +40,7 @@ const UpdateNoteForm = ({ onSubmit }) => {
                 style={styles.keyboardAvoiding} behavior="padding"
                 enabled keyboardVerticalOffset={50}
             >
-                <ScrollView>
+                <ScrollView keyboardShouldPersistTaps={'handled'}>
                     <Text fontSize="subheading">Title</Text>
                     <View style='formCircle'>
                         <FormikTextInput name="title" placeholder="" />

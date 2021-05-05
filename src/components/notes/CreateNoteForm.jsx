@@ -1,5 +1,5 @@
 //import React from 'react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import FormikTextInput from '../FormikTextInput';
