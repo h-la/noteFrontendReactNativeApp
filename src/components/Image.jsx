@@ -14,12 +14,18 @@ const styles = StyleSheet.create({
     height: 45,
     tintColor: theme.colors.textTheme,
   },
+  topAppBarImage: {
+    width: 30,
+    height: 30,
+    tintColor: theme.colors.textTheme,
+  },
 });
 
 const Image = ({ style, source }) => {
   const imageStyle = [
     style === 'image' && styles.image,
     style === 'imageActivated' && styles.imageActivated,
+    style === 'topAppBarImage' && styles.topAppBarImage,
   ];
 
   return <NativeImage source={source} style={imageStyle} />;

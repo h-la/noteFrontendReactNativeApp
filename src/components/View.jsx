@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
     appBarTop: {
         //    paddingTop: Constants.statusBarHeight,
         //    paddingLeft: 15,
+        paddingTop: 10,
+        paddingBottom: 10,
         backgroundColor: theme.colors.primaryTheme,
         //    alignItems: 'center',
         flexDirection: 'row',

@@ -1,6 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-native';
-import { useHistory } from 'react-router-native';
+import { useParams, useHistory } from 'react-router-native';
 
 import useSingleNote from '../../hooks/notes/useSingleNote';
 import useDeleteNote from '../../hooks/notes/useDeleteNote';
