@@ -1,10 +1,10 @@
-import React from 'react';
-import { Pressable, Image } from 'react-native';
-import { Link } from 'react-router-native';
+import React, { useState } from 'react';
+import { Pressable } from 'react-native';
 import { useHistory } from 'react-router-native';
 
 import View from '../View'
 import Text from '../Text'
+import Image from '../Image'
 
 import school from '../../../assets/school.png'
 import book from '../../../assets/book.png'
@@ -12,46 +12,55 @@ import audioTrack from '../../../assets/audio_track.png'
 import movie from '../../../assets/movie.png'
 
 const AppBarBottom = () => {
+    const [activated, setActivated] = useState('notes')
     const history = useHistory();
 
-    const goTo = (location) => {
+    const goTo = (location, activation) => {
+        setActivated(activation)
         history.push(location);
     };
 
-    /*
- <Link to='/notelist'>
-                <>
-                    <Image source={audioTrack} style={{ width: 30, height: 30 }} />
-                    <Text color="theme">Podcasts</Text>
-                </>
-            </Link>
-    */
+    const checIfActivated = (view) => {
+        if (activated == view) {
+            return 'imageActivated'
+        } else {
+            return 'image'
+        }
+    }
+
+    const checIfActivatedText = (view) => {
+        if (activated == view) {
+            return 'theme'
+        } else {
+            return 'primary'
+        }
+    }
 
     return (
         <View style='bottomNavigationBar'>
-             <Pressable onPress={() => goTo('/notelist')}>
-                <>
-                    <Image source={school} style={{ width: 30, height: 30 }} />
-                    <Text color="theme">Notes</Text>
-                </>
+            <Pressable onPress={() => goTo('/notelist', 'notes')}>
+                <View style='centralizeContainer'>
+                    <Image source={school} style={checIfActivated('notes')} />
+                    <Text color={checIfActivatedText('notes')}>Notes</Text>
+                </View>
             </Pressable>
-            <Pressable onPress={() => goTo('/booklist')}>
-                <>
-                    <Image source={book} style={{ width: 30, height: 30 }} />
-                    <Text color="theme">Books</Text>
-                </>
+            <Pressable onPress={() => goTo('/booklist', 'books')}>
+                <View style='centralizeContainer'>
+                    <Image source={book} style={checIfActivated('books')} />
+                    <Text color={checIfActivatedText('books')}>Books</Text>
+                </View>
             </Pressable>
-            <Pressable onPress={() => goTo('/podcastlist')}>
-                <>
-                    <Image source={audioTrack} style={{ width: 30, height: 30 }} />
-                    <Text color="theme">Podcasts</Text>
-                </>
+            <Pressable onPress={() => goTo('/podcastlist', 'podcasts')}>
+                <View style='centralizeContainer'>
+                    <Image source={audioTrack} style={checIfActivated('podcasts')} />
+                    <Text color={checIfActivatedText('podcasts')}>Podcasts</Text>
+                </View>
             </Pressable>
-            <Pressable onPress={() => goTo('/videolist')}>
-                <>
-                    <Image source={movie} style={{ width: 30, height: 30 }} />
-                    <Text color="theme">Videos</Text>
-                </>
+            <Pressable onPress={() => goTo('/videolist', 'videos')}>
+                <View style='centralizeContainer'>
+                    <Image source={movie} style={checIfActivated('videos')} />
+                    <Text color={checIfActivatedText('videos')}>Videos</Text>
+                </View>
             </Pressable>
         </View>
     )

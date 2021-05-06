@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
   },
   colorPrimary: {
-    color: theme.colors.primary,
+    color: theme.colors.textPrimary,
   },
   colorTheme: {
     color: theme.colors.textTheme,

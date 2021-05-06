@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     bottomNavigationBar: {
-        paddingBottom: Constants.statusBarHeight,
+    //    paddingBottom: Constants.statusBarHeight,
+        padding: 10,
         position: 'absolute',
         left: 0,
         right: 0,
