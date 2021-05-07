@@ -13,6 +13,8 @@ import Image from '../Image'
 import createNewNote from '../../../assets/create.png'
 
 const AppBarTop = () => {
+    const [visible, setVisible] = React.useState(false);
+
     const [title, setTitle] = useState('NOTES')
     const apolloClient = useApolloClient();
     const history = useHistory();
@@ -20,6 +22,11 @@ const AppBarTop = () => {
     const authStorage = useAuthStorage();
 
     useEffect(() => {
+        if (location.pathname === '/signin') {
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
         if (location.pathname === '/notelist') {
             setTitle('NOTES')
         }
@@ -39,20 +46,24 @@ const AppBarTop = () => {
         apolloClient.resetStore();
         history.push('/signin');
     };
-
-    return (
-        <View style='appBarTop'>
-      
-            <Menu></Menu>
-         
-            <Pressable onPress={logOut}>
+    /*
+    <Pressable onPress={logOut}>
                 <Text>log out</Text>
             </Pressable>
-            <Text fontWeight="bold" fontSize="subheading" color="theme">{title}</Text>
-            <Link to='/createnote'>
-                <Image source={createNewNote} style='topAppBarImage' />
-            </Link>
-          
+            */
+
+    return (
+        <View>
+            {visible
+                ? <View style='appBarTop'>
+                    <Menu></Menu>
+                    <Text fontWeight="bold" fontSize="subheading" color="theme">{title}</Text>
+                    <Link to='/createnote'>
+                        <Image source={createNewNote} style='topAppBarImage' />
+                    </Link>
+                </View>
+                : <View />
+            }
         </View>
     )
 };

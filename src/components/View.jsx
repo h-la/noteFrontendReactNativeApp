@@ -16,6 +16,16 @@ const styles = StyleSheet.create({
     //    justifyContent: 'center',
         justifyContent: 'space-around',
     },
+    popupMenu: {
+        flexGrow: 1,
+        flexShrink: 1,
+        //    paddingLeft: 15,
+        padding: 15,
+        borderRadius: 15,
+        borderColor: theme.colors.primaryTheme,
+        backgroundColor: theme.colors.textTheme,
+        //borderWidth: 2,
+    },
     mainContainer: {
         marginTop: Constants.statusBarHeight,
         paddingBottom: 65,
@@ -98,6 +108,7 @@ const styles = StyleSheet.create({
 const View = ({ height, style, ...props }) => {
     const viewStyle = [
         style === 'appBarTop' && styles.appBarTop,
+        style === 'popupMenu' && styles.popupMenu,
         style === 'mainContainer' && styles.mainContainer,
         style === 'container' && styles.container,
         style === 'subContainer' && styles.subContainer,

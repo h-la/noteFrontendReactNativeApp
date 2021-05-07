@@ -9,7 +9,7 @@ import Text from '../Text'
 const ItemSeparator = () => <View style='separator' />;
 
 const NoteList = () => {
-  const notes = useNotes()
+   const notes = useNotes()
 
   if (notes.loading) {
     return <Text>loading...</Text>
@@ -21,14 +21,14 @@ const NoteList = () => {
 
   return (
     <View style='container'>
-        <FlatList
-          keyExtractor={(item) => item.id}
-          data={notes.data.allNotes.map(p => p)}
-          ItemSeparatorComponent={ItemSeparator}
-          renderItem={({ item }) => (
-            <NoteItem item={item} />
-          )}
-        />
+      <FlatList
+        keyExtractor={(item) => item.id}
+        data={notes.data.allNotes.map(p => p)}
+        ItemSeparatorComponent={ItemSeparator}
+        renderItem={({ item }) => (
+          <NoteItem item={item} />
+        )}
+      />
     </View>
   );
 };

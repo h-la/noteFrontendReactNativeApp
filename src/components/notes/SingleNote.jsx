@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-native';
-
+import { Alert } from 'react-native';
 import useSingleNote from '../../hooks/notes/useSingleNote';
 import useDeleteNote from '../../hooks/notes/useDeleteNote';
 
@@ -23,11 +23,36 @@ const SingleNote = () => {
     }
 
     const handleDeleteNote = async () => {
-    //    console.log({ id })
-        await deleteNote({ id })
-        history.push('/notelist');
-        //props.refetch();
+        Alert.alert(
+            'Delete note',
+            'Are you sure you want to delete this note?',
+            [
+                {
+                    text: 'Cancel',
+                    // eslint-disable-next-line no-console
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'OK',
+                    onPress: async () => {
+                        await deleteNote({ id });                      
+                        history.push('/notelist');       
+                    //    refetch();                
+                    },
+                },
+            ],
+            { cancelable: false },
+        );
+        return true;
     };
+
+    //const handleDeleteNote = async () => {
+    ////    console.log({ id })
+    //    await deleteNote({ id })
+    //    history.push('/notelist');
+    //    //props.refetch();
+    //};
 
     const toUpdateView = () => {
         history.push(`/notelist/updatenote/${id}`);
