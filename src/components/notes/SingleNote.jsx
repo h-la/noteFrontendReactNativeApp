@@ -47,13 +47,6 @@ const SingleNote = () => {
         return true;
     };
 
-    //const handleDeleteNote = async () => {
-    ////    console.log({ id })
-    //    await deleteNote({ id })
-    //    history.push('/notelist');
-    //    //props.refetch();
-    //};
-
     const toUpdateView = () => {
         history.push(`/notelist/updatenote/${id}`);
     };
