@@ -7,6 +7,9 @@ import useDeleteNote from '../../hooks/notes/useDeleteNote';
 import View from '../View'
 import Text from '../Text'
 import Button from '../Button'
+import Image from '../Image'
+
+import important from '../../../assets/star.png'
 
 const SingleNote = () => {
     const { id } = useParams();
@@ -36,9 +39,9 @@ const SingleNote = () => {
                 {
                     text: 'OK',
                     onPress: async () => {
-                        await deleteNote({ id });                      
-                        history.push('/notelist');       
-                    //    refetch();                
+                        await deleteNote({ id });
+                        history.push('/notelist');
+                        //    refetch();                
                     },
                 },
             ],
@@ -56,6 +59,10 @@ const SingleNote = () => {
             <View style='container'>
                 <View style='subContainer'>
                     <View style='centralizeContainer'>
+                        {note.data.findNote.important
+                            ? <Image source={important} style='image' />
+                            : <View />
+                        }
                         <Text fontWeight="bold" fontSize="subheading">{note.data.findNote.title}</Text>
                         <Text color="textSecondary">{note.data.findNote.text}</Text>
                         <Text color="textSecondary">{note.data.findNote.url}</Text>
