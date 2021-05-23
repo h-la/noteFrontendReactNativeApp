@@ -5,6 +5,7 @@ import NoteItem from './NoteItem'
 
 import View from '../View'
 import Text from '../Text'
+import PickerSelect from '../PickerSelect';
 
 const ItemSeparator = () => <View style='separator' />;
 
@@ -20,6 +21,8 @@ const NoteList = () => {
   }
 
   return (
+    <View>
+      <PickerSelect/>
     <View style='container'>
       <FlatList
         keyExtractor={(item) => item.id}
@@ -29,6 +32,7 @@ const NoteList = () => {
           <NoteItem item={item} />
         )}
       />
+    </View>
     </View>
   );
 };

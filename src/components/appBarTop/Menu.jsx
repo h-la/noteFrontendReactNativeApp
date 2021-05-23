@@ -16,7 +16,6 @@ import logoutImage from '../../../assets/logout.png'
 
 const Menu = () => {
     const [active, setActive] = useState('');
-
     const [expanded, setExpanded] = useState(false);
 
     const apolloClient = useApolloClient();

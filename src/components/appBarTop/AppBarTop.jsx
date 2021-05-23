@@ -56,7 +56,7 @@ const AppBarTop = () => {
         <View>
             {visible
                 ? <View style='appBarTop'>
-                    <Menu></Menu>
+                    <Menu />
                     <Text fontWeight="bold" fontSize="subheading" color="theme">{title}</Text>
                     <Link to='/createnote'>
                         <Image source={createNewNote} style='topAppBarImage' />
