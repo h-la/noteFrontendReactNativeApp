@@ -3,9 +3,8 @@ import { Drawer } from 'react-native-paper';
 
 import View from './View'
 
-const PickerSelect = () => {
+const PickerSelect = ({ setSortingMethod }) => {
     const [active, setActive] = useState('Latest First');
-
     const [expanded, setExpanded] = useState(false);
 
     useEffect(() => {
@@ -19,6 +18,18 @@ const PickerSelect = () => {
     const sort = (activate) => {
         setExpanded(!expanded)
         setActive(activate)
+        if (activate == "Importants First") {
+            setSortingMethod({ "important": "desc" })
+        }
+        if (activate == "Not Importants First") {
+            setSortingMethod({ "important": "asc" })
+        }
+        if (activate == "Latest First") {
+            setSortingMethod({ "dateModified": "desc" })
+        }
+        if (activate == "Latest Last") {
+            setSortingMethod({ "dateModified": "asc" })
+        }
     }
 
     return (
@@ -31,19 +42,19 @@ const PickerSelect = () => {
                 : <View >
                     <Drawer.Section title="Select an item...">
                         <Drawer.Item
-                            label="Importants First"                    
+                            label="Importants First"
                             onPress={() => sort("Importants First")}
                         />
                         <Drawer.Item
-                            label="Not Impotants First"                  
-                            onPress={() => sort("Not Impotants First")}
+                            label="Not Importants First"
+                            onPress={() => sort("Not Importants First")}
                         />
                         <Drawer.Item
-                            label="Latest First"                          
+                            label="Latest First"
                             onPress={() => sort("Latest First")}
                         />
                         <Drawer.Item
-                            label="Latest Last"                          
+                            label="Latest Last"
                             onPress={() => sort("Latest Last")}
                         />
                     </Drawer.Section>

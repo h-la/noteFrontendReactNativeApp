@@ -1,4 +1,5 @@
-import React from 'react';
+//import React from 'react';
+import React, { useState } from 'react';
 import { FlatList } from 'react-native';
 import useNotes from '../../hooks/notes/useNotes';
 import NoteItem from './NoteItem'
@@ -10,7 +11,8 @@ import PickerSelect from '../PickerSelect';
 const ItemSeparator = () => <View style='separator' />;
 
 const NoteList = () => {
-   const notes = useNotes()
+  const [sortingMethod, setSortingMethod] = useState({"dateModified": "desc"});
+  const notes = useNotes({ sortingOrder: sortingMethod })
 
   if (notes.loading) {
     return <Text>loading...</Text>
@@ -22,17 +24,17 @@ const NoteList = () => {
 
   return (
     <View>
-      <PickerSelect/>
-    <View style='container'>
-      <FlatList
-        keyExtractor={(item) => item.id}
-        data={notes.data.allNotes.map(p => p)}
-        ItemSeparatorComponent={ItemSeparator}
-        renderItem={({ item }) => (
-          <NoteItem item={item} />
-        )}
-      />
-    </View>
+      <PickerSelect setSortingMethod={setSortingMethod} />
+      <View style='container'>
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={notes.data.allNotes.map(p => p)}
+          ItemSeparatorComponent={ItemSeparator}
+          renderItem={({ item }) => (
+            <NoteItem item={item} />
+          )}
+        />
+      </View>
     </View>
   );
 };

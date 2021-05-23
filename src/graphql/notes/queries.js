@@ -10,10 +10,9 @@ const NOTE_DETAILS = gql`
   }
 `;
 
-
 export const GET_NOTES = gql`
-  query {
-    allNotes {
+  query ($sortingOrder: NoteOrderByInput) {
+    allNotes (order : $sortingOrder) {
       ...noteDetails
     }
   }

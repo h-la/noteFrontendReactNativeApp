@@ -39,7 +39,6 @@ const Menu = () => {
 
     return (
         <View>
-
             {expanded
                 ? <Pressable onPress={open}>
                     <Image source={MenuImage} style='topAppBarImage' />
@@ -64,7 +63,6 @@ const Menu = () => {
                     </Drawer.Section>
                 </View>
             }
-
         </View>
     );
 };

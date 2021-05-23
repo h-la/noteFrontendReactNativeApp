@@ -7,6 +7,7 @@ const useNotes = (variables) => {
 
   const { data, error, loading } = useQuery(GET_NOTES, {
     fetchPolicy: 'cache-and-network',
+    variables,
   });
 
   return {
